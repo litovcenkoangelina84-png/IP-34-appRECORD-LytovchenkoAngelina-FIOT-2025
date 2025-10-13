@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Лабораторна робота №1 — Звіт</title>
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f6f8fc;
+    margin: 20px;
+    color: #222;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  header h1 {
+    color: #003366;
+    margin-bottom: 5px;
+  }
+  section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+  }
+  h2 {
+    color: #003366;
+    border-bottom: 2px solid #003366;
+    padding-bottom: 5px;
+  }
+  h3 { color: #005599; margin-top: 15px; }
+  ul, ol { margin-left: 25px; }
+  pre {
+    background: #eef1f8;
+    padding: 10px;
+    border-radius: 8px;
+    overflow-x: auto;
+  }
+  img.screenshot {
+    max-width: 100%;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+  a {
+    color: #0044cc;
+  }
+  footer {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-top: 20px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+  }
+  th, td {
+    border: 1px solid #888;
+    padding: 8px;
+    text-align: left;
+  }
+  th {
+    background: #dce3ff;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>ЛАБОРАТОРНА РОБОТА №1</h1>
+    <p><b>Тема:</b> ТЕГИ ТА АТРИБУТИ HTML-ДОКУМЕНТА. СТРУКТУРНА РОЗМІТКА. GIT.GITHUB. РОБОТА З РЕПОЗИТОРІЯМИ.  
+    ОПИС ЛОГІКИ ВЛАСНОГО WEB-ЗАСТОСУНКУ.</p>
+  </header>
+
+  <section>
+    <h2>Тема, мета, місце розташування сайту, звіту</h2>
+    <p><b>Мета:</b> Навчитися створювати HTML-документи з правильною структурою,  
+    застосовувати основні теги та атрибути, а також працювати з репозиторіями GitHub.</p>
+
+    <ul>
+      <li><a href="#">Посилання на репозиторій WEB-застосунку</a></li>
+      <li><a href="#">Посилання на живу сторінку WEB-застосунку</a></li>
+      <li><a href="#">Посилання на репозиторій звітного HTML-документу</a></li>
+      <li><a href="#">Посилання на живу сторінку звітного HTML-документу</a></li>
+      <li><a href="#">Посилання на репозиторій самостійних робіт</a></li>
+      <li><a href="#">Посилання на живу сторінку самостійних робіт</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Опис предметного середовища</h2>
+    <p>Предметне середовище охоплює розробку простого веб-застосунку <b>“To-Do List”</b>,  
+    який дозволяє користувачу створювати, редагувати, позначати виконані завдання та видаляти їх.  
+    Дані зберігаються у <b>localStorage</b> браузера.</p>
+  </section>
+
+  <section>
+    <h2>Структура головної сторінки WEB-застосунку</h2>
+    <p>Головна сторінка містить:</p>
+    <ul>
+      <li>Заголовок сторінки та логотип.</li>
+      <li>Форму для додавання нового завдання.</li>
+      <li>Список завдань із кнопками редагування та видалення.</li>
+      <li>Таблицю прикладу.</li>
+      <li>Посилання на сторінку опису застосунку.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>HTML-код таблиці</h2>
+    <pre>
+&lt;table&gt;
+  &lt;tr&gt;&lt;th&gt;№&lt;/th&gt;&lt;th&gt;Завдання&lt;/th&gt;&lt;th&gt;Статус&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;Підготувати звіт&lt;/td&gt;&lt;td&gt;Активне&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;Придбати продукти&lt;/td&gt;&lt;td&gt;Виконано&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+    </pre>
+    <h3>Скріншот таблиці:</h3>
+    <img src="table-screenshot.png" alt="Скріншот таблиці" class="screenshot">
+    <p><b>Теорія:</b> Таблиці створюються за допомогою тегів:
+      <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;td&gt;</code>.  
+      Основні атрибути: <i>border</i>, <i>cellpadding</i>, <i>cellspacing</i>, <i>width</i>, <i>align</i>.</p>
+  </section>
+
+  <section>
+    <h2>HTML-код зображення</h2>
+    <pre>
+&lt;img src="todo-preview.png" alt="Скрін To-Do застосунку" width="400"&gt;
+    </pre>
+    <h3>Скріншот зображення:</h3>
+    <img src="todo-preview.png" alt="Скрін To-Do застосунку" class="screenshot">
+    <p><b>Теорія:</b> Тег <code>&lt;img&gt;</code> використовується для вставки зображень.  
+      Основні атрибути: <i>src</i> — шлях до зображення, <i>alt</i> — альтернативний текст,  
+      <i>width</i> / <i>height</i> — розміри, <i>title</i> — підказка при наведенні.</p>
+  </section>
+
+  <section>
+    <h2>HTML-код списків</h2>
+    <pre>
+&lt;ul&gt;
+  &lt;li&gt;Додати завдання&lt;/li&gt;
+  &lt;li&gt;Позначити виконаним&lt;/li&gt;
+  &lt;li&gt;Видалити завдання&lt;/li&gt;
+&lt;/ul&gt;
+    </pre>
+    <h3>Скріншот списку:</h3>
+    <img src="list-screenshot.png" alt="Скрін списку" class="screenshot">
+    <p><b>Теорія:</b> Списки створюються тегами:
+      <code>&lt;ul&gt;</code> — маркований, <code>&lt;ol&gt;</code> — нумерований,  
+      <code>&lt;li&gt;</code> — елемент списку.  
+      Атрибути: <i>type</i> (тип маркера або номера), <i>start</i> (початкове число),  
+      <i>reversed</i> (зворотній порядок).</p>
+  </section>
+
+  <section>
+    <h2>Висновки</h2>
+    <p>У ході виконання лабораторної роботи №1 я ознайомилася зі структурою HTML-документа,  
+    навчилася створювати таблиці, зображення та списки, а також розміщувати код і скріншоти у звітному файлі.  
+    Також було освоєно основи роботи з Git та GitHub, створено власний репозиторій для WEB-застосунку.</p>
+  </section>
+
+  <footer>
+    © 2025 | Лабораторна робота №1 — Литовченко Ангеліна
+  </footer>
+</body>
+</html>
