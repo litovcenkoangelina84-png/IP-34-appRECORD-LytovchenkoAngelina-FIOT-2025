@@ -5,6 +5,57 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Лабораторна робота №1 — Звіт</title>
 <style>
+  html {
+  scroll-behavior: smooth;
+}
+
+/* Плаваюче меню змісту */
+.floating-nav {
+  position: fixed;
+  right: 30px;
+  top: 120px;
+  width: 200px;
+  background: #fff;
+  border: 1px solid #ccd4e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 12px 16px;
+  font-size: 14px;
+  z-index: 999;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.floating-nav h3 {
+  margin-top: 0;
+  text-align: center;
+  font-size: 15px;
+  color: #003366;
+  border-bottom: 2px solid #003366;
+  padding-bottom: 4px;
+}
+
+.floating-nav ul {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+.floating-nav li {
+  margin: 6px 0;
+}
+
+.floating-nav a {
+  color: #0044cc;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.floating-nav a:hover {
+  color: #001a66;
+  text-decoration: underline;
+}
+
   body {
     font-family: "Segoe UI", Arial, sans-serif;
     background: #f6f8fc;
@@ -77,28 +128,33 @@
   </header>
 
   <section>
+  <section id="topic">
     <h2>Тема, мета, місце розташування сайту, звіту</h2>
     <p><b>Мета:</b> Навчитися створювати HTML-документи з правильною структурою,  
     застосовувати основні теги та атрибути, а також працювати з репозиторіями GitHub.</p>
 
     <ul>
-      <li><a href="https://github.com/litovcenkoangelina84-png/IP34_appWEB-LytovchenkoAngelina-FIOT-2025">Посилання на репозиторій WEB-застосунку</a></li>
-      <li><a href="https://litovcenkoangelina84-png.github.io/IP34_appWEB-LytovchenkoAngelina-FIOT-2025/">Посилання на живу сторінку WEB-застосунку</a></li>
-      <li><a href="https://github.com/litovcenkoangelina84-png/IP-34-appRECORD-LytovchenkoAngelina-FIOT-2025">Посилання на репозиторій звітного HTML-документу</a></li>
-      <li><a href="https://litovcenkoangelina84-png.github.io/IP-34-appRECORD-LytovchenkoAngelina-FIOT-2025/">Посилання на живу сторінку звітного HTML-документу</a></li>
-      <li><a href="https://github.com/litovcenkoangelina84-png/IP-34_INDEPENDENT-LytovchenkoAngelina-FIOT-2025">Посилання на репозиторій самостійних робіт</a></li>
-      <li><a href="https://litovcenkoangelina84-png.github.io/IP-34_INDEPENDENT-LytovchenkoAngelina-FIOT-2025/">Посилання на живу сторінку самостійних робіт</a></li>
+      <li><a href="#">Посилання на репозиторій WEB-застосунку</a></li>
+      <li><a href="#">Посилання на живу сторінку WEB-застосунку</a></li>
+      <li><a href="#">Посилання на репозиторій звітного HTML-документу</a></li>
+      <li><a href="#">Посилання на живу сторінку звітного HTML-документу</a></li>
+      <li><a href="#">Посилання на репозиторій самостійних робіт</a></li>
+      <li><a href="#">Посилання на живу сторінку самостійних робіт</a></li>
     </ul>
   </section>
+</section>
 
   <section>
+    <section id="environment">
     <h2>Опис предметного середовища</h2>
     <p>Предметне середовище охоплює розробку простого веб-застосунку <b>“To-Do List”</b>,  
     який дозволяє користувачу створювати, редагувати, позначати виконані завдання та видаляти їх.  
     Дані зберігаються у <b>localStorage</b> браузера.</p>
   </section>
+  </section>
 
   <section>
+    <section id="structure">
     <h2>Структура головної сторінки WEB-застосунку</h2>
     <p>Головна сторінка містить:</p>
     <ul>
@@ -109,8 +165,10 @@
       <li>Посилання на сторінку опису застосунку.</li>
     </ul>
   </section>
+  </section>
 
   <section>
+  <section id="table">
     <h2>HTML-код таблиці</h2>
     <pre>
 &lt;table&gt;
@@ -119,6 +177,7 @@
   &lt;tr&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;Придбати продукти&lt;/td&gt;&lt;td&gt;Виконано&lt;/td&gt;&lt;/tr&gt;
 &lt;/table&gt;
     </pre>
+    </section>
     <h3>Скріншот таблиці:</h3>
     <img src="table-screenshot.png" alt="Скріншот таблиці" class="screenshot">
     <p><b>Теорія:</b> Таблиці створюються за допомогою тегів:
@@ -127,6 +186,8 @@
   </section>
 
   <section>
+  <section id="image">
+  </section>
     <h2>HTML-код зображення</h2>
     <pre>
 &lt;img src="todo-preview.png" alt="Скрін To-Do застосунку" width="400"&gt;
@@ -139,6 +200,7 @@
   </section>
 
   <section>
+  <section id="list">
     <h2>HTML-код списків</h2>
     <pre>
 &lt;ul&gt;
@@ -147,6 +209,7 @@
   &lt;li&gt;Видалити завдання&lt;/li&gt;
 &lt;/ul&gt;
     </pre>
+    </section>
     <h3>Скріншот списку:</h3>
     <img src="list-screenshot.png" alt="Скрін списку" class="screenshot">
     <p><b>Теорія:</b> Списки створюються тегами:
@@ -157,14 +220,29 @@
   </section>
 
   <section>
+  <section id="conclusion">
     <h2>Висновки</h2>
     <p>У ході виконання лабораторної роботи №1 я ознайомилася зі структурою HTML-документа,  
     навчилася створювати таблиці, зображення та списки, а також розміщувати код і скріншоти у звітному файлі.  
     Також було освоєно основи роботи з Git та GitHub, створено власний репозиторій для WEB-застосунку.</p>
   </section>
+  </section>
 
   <footer>
     © 2025 | Лабораторна робота №1 — Литовченко Ангеліна
   </footer>
+  <nav class="floating-nav">
+  <h3>Зміст</h3>
+  <ul>
+    <li><a href="#topic">Тема, мета, місце розташування</a></li>
+    <li><a href="#environment">Опис предметного середовища</a></li>
+    <li><a href="#structure">Структура сторінки</a></li>
+    <li><a href="#table">HTML-код таблиці</a></li>
+    <li><a href="#image">HTML-код зображення</a></li>
+    <li><a href="#list">HTML-код списків</a></li>
+    <li><a href="#conclusion">Висновки</a></li>
+  </ul>
+</nav>
+
 </body>
 </html>
