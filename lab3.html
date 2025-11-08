@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Лабораторна робота №3 — Звіт</title>
+<style>
+html {
+  scroll-behavior: smooth;
+}
+
+/* Плаваюче меню змісту */
+.floating-nav {
+  position: fixed;
+  right: 30px;
+  top: 120px;
+  width: 220px;
+  background: #fff;
+  border: 1px solid #ccd4e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 12px 16px;
+  font-size: 14px;
+  z-index: 999;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.floating-nav h3 {
+  margin-top: 0;
+  text-align: center;
+  font-size: 15px;
+  color: #003366;
+  border-bottom: 2px solid #003366;
+  padding-bottom: 4px;
+}
+
+.floating-nav ul {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+.floating-nav li {
+  margin: 6px 0;
+}
+
+.floating-nav a {
+  color: #0044cc;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.floating-nav a:hover {
+  color: #001a66;
+  text-decoration: underline;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f6f8fc;
+  margin: 20px;
+  color: #222;
+}
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+header h1 {
+  color: #003366;
+  margin-bottom: 5px;
+}
+section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  margin-bottom: 25px;
+}
+h2 {
+  color: #003366;
+  border-bottom: 2px solid #003366;
+  padding-bottom: 5px;
+}
+h3 { color: #005599; margin-top: 15px; }
+ul, ol { margin-left: 25px; }
+pre {
+  background: #eef1f8;
+  padding: 10px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+img.screenshot {
+  max-width: 100%;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+a {
+  color: #0044cc;
+}
+footer {
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>ЛАБОРАТОРНА РОБОТА №3</h1>
+  <p><b>Тема:</b> ВЕРСТКА HTML-ДОКУМЕНТУ. БЛОКОВА ВЕРСТКА.  
+  ВЕРСТКА ЗАСОБАМИ CSS та FLEXBOX. АДАПТИВНА ВЕРСТКА.  
+  МЕДІА-ЗАПИТИ. МЕТАТЕГ VIEWPORT.</p>
+</header>
+
+<section id="goal">
+  <h2>Мета роботи</h2>
+  <p>
+    Придбати практичні навички верстки сторінок засобами CSS, 
+    верстки на основі плаваючих елементів, з’ясувати переваги та недоліки типів макетів веб-сторінок.  
+    Освоїти роботу з технологією <b>FLEXBOX</b>, створення адаптивних макетів, медіа-запитів та використання метатегу <code>viewport</code>.
+  </p>
+</section>
+
+<section id="task1">
+  <h2>Завдання №1 — Розробка макету власного сайту</h2>
+  <p>
+    Для реалізації головної сторінки мого вебзастосунку я використовую <b>адаптивний блоковий макет</b>,
+    побудований за допомогою технології <b>Flexbox</b>. Такий тип макету дозволяє елементам гнучко змінювати
+    свої розміри та розташування залежно від ширини екрана користувача.
+  </p>
+
+  <h3>Тип макету:</h3>
+  <ul>
+    <li><b>Тип:</b> Блоковий, адаптивний.</li>
+    <li><b>Технології:</b> HTML5 семантичні теги + CSS3 (Flexbox, Media Queries).</li>
+    <li><b>Переваги:</b> Зручна адаптація під різні пристрої, простота зміни структури, гнучкість у дизайні.</li>
+  </ul>
+
+  <h3>Скріншот головної сторінки сайту</h3>
+  <img src="main-page.png" alt="Головна сторінка сайту" class="screenshot">
+
+  <h3>HTML код головної сторінки</h3>
+  <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="uk"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Мій вебсайт&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header class="header"&gt;
+    &lt;div class="logo"&gt;MySite&lt;/div&gt;
+    &lt;nav class="nav"&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Головна&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Про мене&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Послуги&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#"&gt;Контакти&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;div class="burger"&gt;&#9776;&lt;/div&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main class="main"&gt;
+    &lt;section class="cards"&gt;
+      &lt;div class="card"&gt;
+        &lt;h3&gt;Карточка 1&lt;/h3&gt;
+        &lt;p&gt;Опис контенту або послуги&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="card"&gt;
+        &lt;h3&gt;Карточка 2&lt;/h3&gt;
+        &lt;p&gt;Опис контенту або послуги&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="card"&gt;
+        &lt;h3&gt;Карточка 3&lt;/h3&gt;
+        &lt;p&gt;Опис контенту або послуги&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;footer class="footer"&gt;
+    &lt;p&gt;© 2025 MySite | Контакти: itovcenkoangelina84@gmail.com&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+  </pre>
+
+  <h3>CSS код головної сторінки</h3>
+  <pre>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #222;
+  background: #f6f8fc;
+}
+
+header.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #003366;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+.burger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* Основний блок */
+.main {
+  padding: 20px;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  width: 300px;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+footer.footer {
+  text-align: center;
+  padding: 15px;
+  background: #003366;
+  color: #fff;
+  margin-top: 20px;
+}
+
+/* --- Адаптивність --- */
+@media (max-width: 768px) {
+  .nav ul {
+    display: none;
+    flex-direction: column;
+    background: #003366;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .nav ul.active {
+    display: flex;
+  }
+
+  .burger {
+    display: block;
+  }
+}
+  </pre>
+
+  <h3>Пояснення до макету:</h3>
+  <ul>
+    <li><b>Тип макету:</b> Адаптивний блоковий макет, побудований на Flexbox.</li>
+    <li><b>Семантика:</b> використані теги <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>.</li>
+    <li><b>Адаптивність:</b> реалізована через <code>@media</code> запити та “бургер-меню”.</li>
+    <li><b>Ефекти:</b> анімація при наведенні на картки, плавне розгортання меню.</li>
+    <li><b>Використані одиниці:</b> rem, %, vw — для гнучкої масштабованості.</li>
+  </ul>
+</section>
+
+
+<section id="task2">
+  <h2>Завдання №2</h2>
+  <p>Виконати верстку сторінки за допомогою технології <b>Flexbox</b>.</p>
+
+  <h3>Скріншот сторінки, яка була виконана технологією FLEXBOX:</h3>
+  <img src="flexbox-example.png" alt="Flexbox верстка" class="screenshot">
+</section>
+
+<section id="fixed-table">
+  <h2>Фіксована таблична верстка</h2>
+  <p>Приклад сторінки, де елементи розташовані у таблиці з фіксованими ширинами стовпців.</p>
+  <img src="fixed-table-layout.png" alt="Фіксована таблична верстка" class="screenshot">
+</section>
+
+<section id="fluid-table">
+  <h2>Гумова таблична верстка</h2>
+  <p>Приклад сторінки, де таблиця розтягується відповідно до ширини вікна браузера.</p>
+  <img src="fluid-table-layout.png" alt="Гумова таблична верстка" class="screenshot">
+</section>
+
+<section id="fixed-block">
+  <h2>Фіксована блокова верстка</h2>
+  <p>Приклад сторінки, де блоки мають постійну ширину незалежно від розміру вікна браузера.</p>
+  <img src="fixed-block-layout.png" alt="Фіксована блокова верстка" class="screenshot">
+</section>
+
+<section id="fluid-block">
+  <h2>Гумова блокова верстка</h2>
+  <p>Приклад сторінки, де блоки змінюють свої розміри пропорційно до ширини екрана.</p>
+  <img src="fluid-block-layout.png" alt="Гумова блокова верстка" class="screenshot">
+</section>
+
+<section id="task3">
+  <h2>Завдання №3</h2>
+  <p>Створити адаптивну сторінку з використанням медіа-запитів для різних пристроїв.</p>
+
+  <h3>Зовнішній вигляд сторінки</h3>
+  <img src="page.png" alt="Адаптивна сторінка" class="screenshot">
+
+  <h3>HTML код сторінки</h3>
+<pre>
+&lt;div class="container"&gt;
+
+  &lt;!-- === Програма курсу React === --&gt;
+  &lt;section class="react-program"&gt;
+    &lt;div class="container"&gt;
+      &lt;div class="program-content"&gt;
+        &lt;div class="program-info"&gt;
+          &lt;div class="hours-badge"&gt;
+            &lt;span class="big-num"&gt;40&lt;/span&gt;
+            &lt;span class="small-num"&gt;ГОДИН&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;p class="description"&gt;ОПАНУЙ REACT ЗА 20 ЗАНЯТЬ&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="syllabus"&gt;
+          &lt;p class="section-title"&gt;ПРОГРАМА КУРСУ&lt;/p&gt;
+          &lt;h2&gt;REACT&lt;/h2&gt;
+          &lt;ol class="syllabus-list"&gt;
+            &lt;li&gt;Встановлення React&lt;/li&gt;
+            &lt;li&gt;Класові компоненти&lt;/li&gt;
+            &lt;li&gt;State &amp; Props&lt;/li&gt;
+            &lt;li&gt;Data Forwarding &amp; Props Drilling&lt;/li&gt;
+            &lt;li&gt;Lifecycle Hooks&lt;/li&gt;
+            &lt;li&gt;Функціональні компоненти&lt;/li&gt;
+            &lt;li&gt;Routing&lt;/li&gt;
+            &lt;li&gt;Hooks&lt;/li&gt;
+            &lt;li&gt;Redux&lt;/li&gt;
+          &lt;/ol&gt;
+          &lt;button class="enroll-button"&gt;Записатися на курс&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;hr&gt;
+
+  &lt;!-- === Ціни / Карточки тарифів === --&gt;
+  &lt;section class="pricing-section"&gt;
+    &lt;div class="container"&gt;
+      &lt;h3 class="stationar-title"&gt;СТАЦІОНАР&lt;/h3&gt;
+      &lt;div class="pricing-cards"&gt;
+        &lt;div class="card minimal-card"&gt;
+          &lt;div class="plan-header"&gt;MINIMAL&lt;/div&gt;
+          &lt;ul class="features-list"&gt;
+            &lt;li&gt;&lt;span class="icon"&gt;✓&lt;/span&gt; 40 годин&lt;/li&gt;
+            &lt;li&gt;&lt;span class="icon"&gt;✓&lt;/span&gt; 2 місяці&lt;/li&gt;
+            &lt;li&gt;&lt;span class="icon"&gt;✓&lt;/span&gt; 12 занять по 2 години&lt;/li&gt;
+            &lt;li&gt;&lt;span class="icon"&gt;✓&lt;/span&gt; Вечірнє навчання&lt;/li&gt;
+            &lt;li&gt;&lt;span class="icon"&gt;✓&lt;/span&gt; Особистий ментор&lt;/li&gt;
+          &lt;/ul&gt;
+          &lt;div class="price-block"&gt;
+            &lt;p class="old-price"&gt;17 000 грн&lt;/p&gt;
+            &lt;p class="current-price"&gt;8 500 грн&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;button class="signup-button"&gt;Записатися&lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;div class="card pro-card"&gt;
+          &lt;div class="plan-header"&gt;PRO&lt;/div&gt;
+          &lt;ul class="features-list"&gt;
+            &lt;li&gt;&lt;span class="icon"&gt;✓&lt;/span&gt; 40 годин&lt;/li&gt;
+            &lt;li&gt;&lt;span class="icon"&gt;✓&lt;/span&gt; 2 місяці&lt;/li&gt;
+            &lt;li&gt;&lt;span class="icon"&gt;✓&lt;/span&gt; 12 занять по 2 години&lt;/li&gt;
+            &lt;li&gt;&lt;span class="icon"&gt;✓&lt;/span&gt; Вечірнє навчання&lt;/li&gt;
+            &lt;li&gt;&lt;span class="icon"&gt;✓&lt;/span&gt; Особистий ментор&lt;/li&gt;
+          &lt;/ul&gt;
+          &lt;div class="price-block"&gt;
+            &lt;p class="old-price"&gt;25 000 грн&lt;/p&gt;
+            &lt;p class="current-price"&gt;12 500 грн&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;button class="signup-button"&gt;Записатися&lt;/button&gt;
+        &lt;/div&gt;
+
+        &lt;div class="card individual-card"&gt;
+          &lt;div class="plan-header"&gt;ІНДИВІДУАЛЬНО&lt;/div&gt;
+          &lt;p class="individual-description"&gt;
+            Обери наставника, тривалість та інтенсивність навчання для персональної методики.
+          &lt;/p&gt;
+          &lt;div class="price-block"&gt;
+            &lt;p class="old-price"&gt;100 000 грн&lt;/p&gt;
+            &lt;p class="current-price"&gt;51 000 грн&lt;/p&gt;
+          &lt;/div&gt;
+          &lt;button class="signup-button"&gt;Записатися&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- === Комплексний курс QA === --&gt;
+  &lt;section class="qa-course"&gt;
+    &lt;div class="container qa-container"&gt;
+      &lt;div class="qa-text"&gt;
+        &lt;h2&gt;КОМПЛЕКСНИЙ КУРС&lt;br&gt;ТЕСТУВАННЯ QA&lt;/h2&gt;
+        &lt;p&gt;&lt;b&gt;Такого крутого курсу тестування ще не було!&lt;/b&gt;&lt;br&gt;
+           Найбільший та найкращий курс тестування в Україні. Гарантія працевлаштування.
+        &lt;/p&gt;
+        &lt;button class="btn blue"&gt;Забронювати місце&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class="qa-img-container"&gt;
+        &lt;img src="teacher.png" alt="Викладач курсу" class="qa-img"&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+&lt;/div&gt;
+</pre>
+
+  <h3>CSS код сторінки</h3>
+<pre>
+/* === Базові стилі === */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #f0f2f5;
+    color: #333;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* === Програма курсу React === */
+.react-program { background-color: #fff; padding: 40px 0; }
+.program-content { display: flex; gap: 50px; align-items: flex-start; flex-wrap: wrap; }
+.program-info { flex: 0 0 250px; text-align: center; }
+.hours-badge { position: relative; width: 250px; height: 250px; margin: 0 auto 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.hours-badge::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; border: 10px solid #ff8c00; border-radius: 50%; opacity: 0.3; }
+.hours-badge .big-num { font-size: 5em; font-weight: 900; color: #ff8c00; line-height: 0.8; }
+.hours-badge .small-num { font-size: 1.5em; font-weight: 700; color: #ff8c00; margin-top: -10px; }
+.description { font-weight: 700; color: #555; margin-top: 0; text-transform: uppercase; }
+.syllabus { flex-grow: 1; }
+.section-title { color: #ff8c00; font-weight: 700; text-transform: uppercase; margin-bottom: 5px; }
+.syllabus h2 { font-size: 2em; font-weight: 900; margin-bottom: 20px; }
+.syllabus-list { list-style: none; padding: 0; counter-reset: syllabus-counter; display: grid; grid-template-columns: 1fr 1fr; gap: 15px 30px; }
+.syllabus-list li { counter-increment: syllabus-counter; font-size: 1.1em; font-weight: 500; display: flex; align-items: center; }
+.syllabus-list li::before { content: counter(syllabus-counter); display: inline-block; width: 25px; height: 25px; line-height: 25px; text-align: center; border: 2px solid #ff8c00; color: #ff8c00; border-radius: 50%; margin-right: 10px; font-size: 0.8em; font-weight: 700; }
+.enroll-button { background-color: #ffd700; color: #333; border: none; padding: 15px 40px; font-size: 1em; font-weight: 700; cursor: pointer; border-radius: 5px; margin-top: 30px; text-transform: uppercase; transition: background-color 0.3s; }
+.enroll-button:hover { background-color: #ffc400; }
+
+/* === Карточки тарифів === */
+.pricing-section { padding: 40px 0 80px; background-color: #f0f2f5; }
+.stationar-title { background-color: #ffd700; display: inline-block; padding: 5px 15px; margin-bottom: 30px; font-weight: 700; text-transform: uppercase; clip-path: polygon(0 0, 95% 0, 100% 100%, 0% 100%); }
+.pricing-cards { display: flex; gap: 30px; flex-wrap: wrap; }
+.card { background-color: #fff; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); padding: 30px; flex: 1; text-align: center; border-top: 8px solid #007bff; }
+.plan-header { font-size: 1.5em; font-weight: 900; margin-bottom: 20px; color: #007bff; }
+.features-list { list-style: none; padding: 0; text-align: left; margin-bottom: 30px; }
+.features-list li { padding: 8px 0; border-bottom: 1px solid #eee; display: flex; align-items: center; }
+.features-list li:last-child { border-bottom: none; }
+.icon { margin-right: 10px; color: #007bff; font-weight: 700; }
+.price-block { margin: 20px 0; }
+.old-price { text-decoration: line-through; color: #888; font-size: 1.2em; margin: 0; }
+.current-price { font-size: 2.5em; font-weight: 900; color: #007bff; margin: 5px 0 0; line-height: 1; }
+.signup-button { background-color: #ffd700; color: #333; border: none; padding: 15px 40px; font-size: 1em; font-weight: 700; cursor: pointer; border-radius: 5px; text-transform: uppercase; transition: background-color 0.3s; }
+.signup-button:hover { background-color: #ffc400; }
+.individual-card { border-top: 8px solid #ffd700; background-color: #007bff; color: white; }
+.individual-card .plan-header { color: #ffd700; }
+.individual-card .current-price { color: #ffd700; }
+.individual-description { font-size: 0.9em; margin-bottom: 40px; padding: 0 10px; min-height: 100px; display: flex; align-items: center; text-align: center; }
+
+/* === QA-курс === */
+.qa-course { background: #fff; padding: 40px 20px; }
+.qa-container { display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap; }
+.qa-text { flex: 1; min-width: 280px; }
+.qa-text h2 { font-size: 2em; font-weight: 900; margin-bottom: 15px; color: #ff8c00; }
+.qa-text p { font-size: 1em; line-height: 1.5; margin-bottom: 20px; }
+.qa-img-container { flex: 0 0 400px; background-color: #f0f2f5; padding: 30px; border-radius: 10px; display: flex; justify-content: center; align-items: center; height: auto; }
+.qa-img { width: 100%; max-width: 100%; height: auto; border-radius: 10px; }
+.btn.blue { background-color: #0055ff; color: #fff; border: none; padding: 12px 30px; font-weight: 700; cursor: pointer; border-radius: 5px; }
+.btn.blue:hover { background-color: #0041cc; }
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .program-content { flex-direction: column; gap: 30px; }
+  .hours-badge { width: 200px; height: 200px; }
+  .syllabus-list { grid-template-columns: 1fr; }
+  .pricing-cards { flex-direction: column; }
+  .card { margin-bottom: 20px; }
+  .qa-container { flex-direction: column; text-align: center; }
+  .qa-img-container { margin-top: 20px; width: 90%; }
+}
+</pre>
+</section>
+
+<section id="conclusion">
+  <h2>Висновки</h2>
+  <p>
+    У ході виконання лабораторної роботи №3 я опанувала методи створення сторінок із фіксованою, гумовою, 
+    табличною та блоковою версткою.  
+    Освоїла технологію <b>Flexbox</b> для створення гнучких адаптивних макетів.  
+    Також навчилася застосовувати медіа-запити для адаптації сторінок під різні пристрої.
+  </p>
+</section>
+
+<footer>
+  © 2025 | Лабораторна робота №3 — Литовченко Ангеліна
+</footer>
+
+<!-- Зміст -->
+<nav class="floating-nav">
+  <h3>Зміст</h3>
+  <ul>
+    <li><a href="#goal">Мета роботи</a></li>
+    <li><a href="#task1">Завдання №1</a></li>
+    <li><a href="#task2">Завдання №2 (Flexbox)</a></li>
+    <li><a href="#fixed-table">Фіксована таблична верстка</a></li>
+    <li><a href="#fluid-table">Гумова таблична верстка</a></li>
+    <li><a href="#fixed-block">Фіксована блокова верстка</a></li>
+    <li><a href="#fluid-block">Гумова блокова верстка</a></li>
+    <li><a href="#task3">Завдання №3 (Адаптивна верстка)</a></li>
+    <li><a href="#conclusion">Висновки</a></li>
+  </ul>
+</nav>
+
+</body>
+</html>

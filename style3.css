@@ -1,0 +1,221 @@
+/* === Базові стилі === */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #f0f2f5;
+    color: #333;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* === Навігація === */
+.header {
+    background: #000;
+    color: #fff;
+    padding: 10px 0;
+}
+.nav { display: flex; justify-content: space-around; align-items: center; }
+.nav .menu { display: flex; list-style: none; gap: 15px; }
+.nav .menu a {
+    color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 4px;
+    transition: 0.3s;
+}
+.nav .menu a:hover { background: #ffcc00; color: #000; }
+
+/* === Програма курсу React === */
+.react-program {
+    background-color: #fff;
+    padding: 40px 0;
+}
+.program-content {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.program-info {
+    flex: 0 0 250px;
+    text-align: center;
+}
+.hours-badge {
+    position: relative;
+    width: 250px; height: 250px; margin: 0 auto 20px;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+}
+.hours-badge::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    border: 10px solid #ff8c00; border-radius: 50%; opacity: 0.3;
+}
+.hours-badge .big-num { font-size: 5em; font-weight: 900; color: #ff8c00; line-height: 0.8; }
+.hours-badge .small-num { font-size: 1.5em; font-weight: 700; color: #ff8c00; margin-top: -10px; }
+.description { font-weight: 700; color: #555; margin-top: 0; text-transform: uppercase; }
+.syllabus { flex-grow: 1; }
+.section-title { color: #ff8c00; font-weight: 700; text-transform: uppercase; margin-bottom: 5px; }
+.syllabus h2 { font-size: 2em; font-weight: 900; margin-bottom: 20px; }
+.syllabus-list {
+    list-style: none;
+    padding: 0;
+    counter-reset: syllabus-counter;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 30px;
+}
+.syllabus-list li {
+    counter-increment: syllabus-counter;
+    font-size: 1.1em; font-weight: 500;
+    display: flex; align-items: center;
+}
+.syllabus-list li::before {
+    content: counter(syllabus-counter);
+    display: inline-block;
+    width: 25px; height: 25px;
+    line-height: 25px; text-align: center;
+    border: 2px solid #ff8c00; color: #ff8c00;
+    border-radius: 50%; margin-right: 10px; font-size: 0.8em; font-weight: 700;
+}
+.enroll-button {
+    background-color: #ffd700;
+    color: #333;
+    border: none; padding: 15px 40px;
+    font-size: 1em; font-weight: 700;
+    cursor: pointer; border-radius: 5px;
+    margin-top: 30px; text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+.enroll-button:hover { background-color: #ffc400; }
+
+/* === Карточки тарифів === */
+.pricing-section { padding: 40px 0 80px; background-color: #f0f2f5; }
+.stationar-title {
+    background-color: #ffd700; display: inline-block;
+    padding: 5px 15px; margin-bottom: 30px;
+    font-weight: 700; text-transform: uppercase;
+    clip-path: polygon(0 0, 95% 0, 100% 100%, 0% 100%);
+}
+.pricing-cards {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 30px;
+    flex: 1;
+    text-align: center;
+    border-top: 8px solid #007bff;
+}
+.plan-header { font-size: 1.5em; font-weight: 900; margin-bottom: 20px; color: #007bff; }
+.features-list { list-style: none; padding: 0; text-align: left; margin-bottom: 30px; }
+.features-list li { padding: 8px 0; border-bottom: 1px solid #eee; display: flex; align-items: center; }
+.features-list li:last-child { border-bottom: none; }
+.icon { margin-right: 10px; color: #007bff; font-weight: 700; }
+.price-block { margin: 20px 0; }
+.old-price { text-decoration: line-through; color: #888; font-size: 1.2em; margin: 0; }
+.current-price { font-size: 2.5em; font-weight: 900; color: #007bff; margin: 5px 0 0; line-height: 1; }
+.signup-button {
+    background-color: #ffd700; color: #333; border: none;
+    padding: 15px 40px; font-size: 1em; font-weight: 700;
+    cursor: pointer; border-radius: 5px; text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+.signup-button:hover { background-color: #ffc400; }
+.individual-card { border-top: 8px solid #ffd700; background-color: #007bff; color: white; }
+.individual-card .plan-header { color: #ffd700; }
+.individual-card .current-price { color: #ffd700; }
+.individual-description { font-size: 0.9em; margin-bottom: 40px; padding: 0 10px; min-height: 100px; display: flex; align-items: center; text-align: center; }
+
+/* === Footer === */
+.footer { text-align: center; background: #000; color: #fff; padding: 10px 0; margin-top: 30px; }
+
+/* === Адаптивність === */
+@media (max-width: 768px) {
+    .program-content { flex-direction: column; gap: 30px; }
+    .hours-badge { width: 200px; height: 200px; }
+    .syllabus-list { grid-template-columns: 1fr; }
+    .pricing-cards { flex-direction: column; }
+    .card { margin-bottom: 20px; }
+}
+
+/* === QA-курс === */
+.qa-course {
+    background: #fff;
+    padding: 40px 20px;
+}
+
+.qa-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.qa-text {
+    flex: 1;
+    min-width: 280px;
+}
+
+.qa-text h2 {
+    font-size: 2em;
+    font-weight: 900;
+    margin-bottom: 15px;
+    color: #ff8c00; /* помаранчевий заголовок */
+}
+
+.qa-text p {
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* === Контейнер фото з блакитним фоном === */
+.qa-img-container {
+    flex: 0 0 400px;       /* ширший контейнер */
+    background-color: #0055ff; /* блакитний фон */
+    padding: 30px;         /* збільшені відступи */
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;          /* автоматична висота під фото */
+}
+
+.qa-img {
+    width: 100%;           /* фото заповнює контейнер */
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Кнопка для QA */
+.btn.blue {
+    background-color: #0055ff;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn.blue:hover {
+    background-color: #0041cc;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+    .qa-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .qa-img-container {
+        margin-top: 20px;
+        width: 90%; /* на мобільних трохи менше ширина */
+    }
+}
