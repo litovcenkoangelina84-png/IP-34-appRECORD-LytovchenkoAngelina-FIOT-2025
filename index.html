@@ -1,159 +1,127 @@
 <!DOCTYPE html>
 <html lang="uk">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Звіт з лабораторних робіт — WEB-технології</title>
-<style>
-  :root {
-    --bg: #f5f7fb;
-    --primary: #1a3d7c;
-    --accent: #4a90e2;
-    --text: #222;
-    --light: #ffffff;
-    --border: #d0d6e0;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Звіт з лабораторних робіт — WEB-технології</title>
+    <style>
+      :root {
+        --bg: #f5f7fb;
+        --primary: #1a3d7c;
+        --accent: #4a90e2;
+        --text: #222;
+        --light: #ffffff;
+        --border: #d0d6e0;
+      }
 
-  body {
-    font-family: "Segoe UI", Roboto, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    margin: 0;
-    padding: 0;
-  }
+      body {
+        font-family: "Segoe UI", Roboto, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        margin: 0;
+        padding: 0;
+      }
 
-  header {
-    text-align: center;
-    background: var(--light);
-    border-bottom: 3px solid var(--accent);
-    padding: 20px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  }
+      header {
+        text-align: center;
+        background: var(--light);
+        border-bottom: 3px solid var(--accent);
+        padding: 20px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      }
 
-  header h1 {
-    font-size: 22px;
-    margin: 0;
-    color: var(--primary);
-  }
-  header h2 {
-    font-size: 16px;
-    margin: 5px 0 10px;
-    color: #333;
-  }
+      header h1 {
+        font-size: 22px;
+        margin: 0;
+        color: var(--primary);
+      }
+      header h2 {
+        font-size: 16px;
+        margin: 5px 0 10px;
+        color: #333;
+      }
 
-  header p {
-    font-size: 14px;
-    color: #555;
-  }
+      header p {
+        font-size: 14px;
+        color: #555;
+      }
 
-  .nav {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    background: #fff;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border);
-  }
+      .nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 20px 0;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
 
-  .nav button {
-    background: var(--accent);
-    color: white;
-    border: none;
-    padding: 10px 14px;
-    border-radius: 6px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: 0.3s;
-  }
+      /* Стилізація посилань як кнопок */
+      .nav a {
+        display: inline-block;
+        background: var(--accent);
+        color: white;
+        text-decoration: none;
+        padding: 12px 18px;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: 0.3s;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
 
-  .nav button:hover {
-    background: #357acb;
-  }
+      .nav a:hover {
+        background: #357acb;
+        transform: translateY(-2px);
+      }
 
-  .info {
-    text-align: right;
-    font-size: 14px;
-    margin: 10px 30px 20px;
-  }
+      .info {
+        text-align: center;
+        font-size: 14px;
+        margin: 20px;
+      }
 
-  .info img {
-    width: 120px;
-    border-radius: 8px;
-    border: 2px solid var(--border);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
+      .info img {
+        width: 150px;
+        border-radius: 8px;
+        border: 2px solid var(--border);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 10px;
+      }
 
-  #content {
-    background: var(--light);
-    max-width: 1000px;
-    margin: 20px auto;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    border: 1px solid var(--border);
-    min-height: 400px;
-  }
+      footer {
+        text-align: center;
+        font-size: 13px;
+        color: #777;
+        margin-top: 40px;
+        padding: 20px;
+        border-top: 1px solid var(--border);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>ЗВІТ З ЛАБОРАТОРНИХ РОБІТ</h1>
+      <h2>з дисципліни «WEB-ОРІЄНТОВАНІ ТЕХНОЛОГІЇ. FRONTEND РОЗРОБКИ»</h2>
+      <p>Виконавець: <b>Литовченко Ангеліна</b>, група <b>IП-34</b></p>
+    </header>
 
-  footer {
-    text-align: center;
-    font-size: 13px;
-    color: #777;
-    margin-top: 40px;
-    padding-top: 10px;
-    border-top: 1px solid var(--border);
-  }
-</style>
-</head>
-<body>
+    <div class="info">
+      <b>Фото студента:</b><br />
+      <img src="photo.jpg" alt="Фото студента" />
+    </div>
 
-<header>
-  <h1>ЗВІТ З ЛАБОРАТОРНИХ РОБІТ</h1>
-  <h2>з дисципліни «WEB-ОРІЄНТОВАНІ ТЕХНОЛОГІЇ. FRONTEND РОЗРОБКИ»</h2>
-  <p>Виконавець: <b>Литовченко Ангеліна</b>, група <b>IП-34</b></p>
-</header>
+    <div class="nav">
+      <a href="lab1.html">Лабораторна робота №1</a>
+      <a href="lab2.html">Лабораторна робота №2</a>
+      <a href="lab3.html">Лабораторна робота №3</a>
+      <a href="lab4.html">Лабораторна робота №4</a>
+      <a href="lab5.html">Лабораторна робота №5</a>
+      <a href="lab6.html">Лабораторна робота №6</a>
+      <a href="lab7.html">Лабораторна робота №7</a>
+      <a href="lab8.html">Лабораторна робота №8</a>
+      <a href="lab9.html">Лабораторна робота №9</a>
+    </div>
 
-<div class="nav">
-  <button onclick="loadLab('lab1.html')">Лабораторна робота №1</button>
-  <button onclick="loadLab('lab2.html')">Лабораторна робота №2</button>
-  <button onclick="loadLab('lab3.html')">Лабораторна робота №3</button>
-  <button onclick="loadLab('lab4.html')">Лабораторна робота №4</button>
-  <button onclick="loadLab('lab5.html')">Лабораторна робота №5</button>
-  <button onclick="loadLab('lab6.html')">Лабораторна робота №6</button>
-  <button onclick="loadLab('lab7.html')">Лабораторна робота №7</button>
-  <button onclick="loadLab('lab8.html')">Лабораторна робота №8</button>
-  <button onclick="loadLab('lab9.html')">Лабораторна робота №9</button>
-</div>
-
-<div class="info">
-  <b>Фото студента:</b><br>
-  <img src="photo.jpg" alt="Фото студента">
-</div>
-
-<div id="content">
-  <p>👆 Виберіть лабораторну роботу зверху, щоб переглянути її зміст.</p>
-</div>
-
-<footer>
-  © 2025 | Звіт з лабораторних робіт — Литовченко Ангеліна
-</footer>
-
-<script>
-function loadLab(file) {
-  fetch(file)
-    .then(response => {
-      if (!response.ok) throw new Error('Файл не знайдено');
-      return response.text();
-    })
-    .then(html => {
-      document.getElementById('content').innerHTML = html;
-    })
-    .catch(err => {
-      document.getElementById('content').innerHTML =
-        '<p style="color:red;">Помилка: ' + err.message + '</p>';
-    });
-}
-</script>
-
-</body>
+    <footer>© 2025 | Звіт з лабораторних робіт — Литовченко Ангеліна</footer>
+  </body>
 </html>

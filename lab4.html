@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Лабораторна робота №4</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f6f8fc;
+            margin: 20px;
+            color: #222;
+        }
+
+        /* Плаваюче меню */
+        .floating-nav {
+            position: fixed;
+            right: 30px;
+            top: 100px;
+            width: 220px;
+            background: #fff;
+            border: 1px solid #ccd4e0;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 12px 16px;
+            font-size: 14px;
+            z-index: 999;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .floating-nav h3 {
+            margin-top: 0;
+            text-align: center;
+            font-size: 15px;
+            color: #003366;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 4px;
+        }
+
+        .floating-nav ul {
+            list-style: none;
+            margin: 10px 0 0;
+            padding: 0;
+        }
+
+        .floating-nav li {
+            margin: 6px 0;
+        }
+
+        .floating-nav a {
+            color: #0044cc;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .floating-nav a:hover {
+            color: #001a66;
+            text-decoration: underline;
+        }
+
+        /* Основний контент */
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            color: #003366;
+            margin-bottom: 5px;
+        }
+
+        section {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+            margin-right: 260px;
+            /* Відступ під меню */
+        }
+
+        h2 {
+            color: #003366;
+            border-bottom: 2px solid #003366;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            color: #005599;
+            margin-top: 15px;
+            border-left: 4px solid #005599;
+            padding-left: 10px;
+        }
+
+        ul {
+            margin-left: 25px;
+        }
+
+        /* Стилі для коду */
+        pre {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: Consolas, monospace;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        /* Консоль виводу */
+        .console-output {
+            background: #f4f4f4;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            min-height: 40px;
+            margin-top: 10px;
+            border-radius: 5px;
+            color: #333;
+        }
+
+        button {
+            background: #003366;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 5px;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #005599;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 300px;
+        }
+
+        /* Гістограма */
+        .bar-container {
+            display: flex;
+            align-items: flex-end;
+            height: 200px;
+            border-left: 2px solid #333;
+            border-bottom: 2px solid #333;
+            gap: 5px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .bar {
+            background-color: #4a90e2;
+            width: 40px;
+            text-align: center;
+            color: white;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            font-size: 12px;
+            transition: height 0.5s;
+        }
+
+        .bar span {
+            margin-bottom: -20px;
+            color: black;
+            font-weight: bold;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #003366;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        @media (max-width: 900px) {
+            .floating-nav {
+                position: static;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            section {
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="back-link">← На головну</a>
+        <h1>ЛАБОРАТОРНА РОБОТА №4</h1>
+        <p>
+            <b>Тема:</b> ФУНКЦІОНАЛЬНЕ ЗАСТОСУВАННЯ JS У HTML-ДОКУМЕНТІ. ВАРІАНТ 7.
+        </p>
+    </header>
+
+    <nav class="floating-nav">
+        <h3>Зміст</h3>
+        <ul>
+            <li><a href="#topic">Тема та Мета</a></li>
+            <li><a href="#task1">Завдання 1 (Prompt)</a></li>
+            <li><a href="#task2">Завдання 2 (Switch)</a></li>
+            <li><a href="#task3">Завдання 3 (Login)</a></li>
+            <li><a href="#task4">Завдання 4 (Функції)</a></li>
+            <li><a href="#task5">Завдання 5 (Spam)</a></li>
+            <li><a href="#task6">Завдання 6 (Arrays)</a></li>
+            <li><a href="#task7">Завдання 7 (Варіант 7)</a></li>
+            <li><a href="#task8">Завдання 8 (2D Масив)</a></li>
+            <li><a href="#task9">Завдання 9 (Гістограма)</a></li>
+            <li><a href="#conclusions">Висновки</a></li>
+        </ul>
+    </nav>
+
+    <section id="topic">
+        <h2>Тема, Мета, Посилання</h2>
+        <p>
+            <b>Мета:</b> придбати практичні навички роботи з конструкціями мови JS,
+            масивами та функціями у js-сценаріях.
+        </p>
+        <ul>
+            <li>
+                <a href="https://litovcenkoangelina84-png.github.io/IP34_appWEB-LytovchenkoAngelina-FIOT-2025/"
+                    target="_blank">Жива сторінка WEB-застосунку</a>
+            </li>
+            <li>
+                <a href="https://github.com/litovcenkoangelina84-png/IP34_appWEB-LytovchenkoAngelina-FIOT-2025"
+                    target="_blank">Репозиторій WEB-застосунку</a>
+            </li>
+            <li>
+                <a href="https://litovcenkoangelina84-png.github.io/IP-34-appRECORD-LytovchenkoAngelina-FIOT-2025/"
+                    target="_blank">Жива сторінка Звітів</a>
+            </li>
+        </ul>
+    </section>
+
+    <section id="task1">
+        <h2>Завдання №1: Prompt та Alert</h2>
+        <h3>Програмний код</h3>
+        <pre>
+function runTask1() {
+  let val = prompt("Введіть число:");
+  let num = Number(val);
+  let status = "";
+
+  if (val === null || val.trim() === "") {
+      status = "Ви нічого не ввели";
+  } else if (isNaN(num)) {
+      status = "Це не число!";
+  } else if (num > 0) {
+      status = "Число додатнє";
+  } else if (num < 0) {
+      status = "Число від’ємне";
+  } else {
+      status = "Число дорівнює нулю";
+  }
+
+  alert(status);
+  let msg = `Введено: "${val}", Результат: ${status}`;
+  console.log(msg);
+  document.getElementById('log1').innerText = msg;
+}
+</pre>
+        <h3>Результат виконання</h3>
+        <button onclick="runTask1()">Запустити скрипт</button>
+        <div id="log1" class="console-output">
+            Результат відобразиться тут (та у вікні alert)...
+        </div>
+    </section>
+
+    <section id="task2">
+        <h2>Завдання №2: Switch Case</h2>
+        <h3>Програмний код</h3>
+        <pre>
+function runTask2() {
+  let val = prompt("Введіть число 1-4 (1-Зима, 2-Весна...):");
+  let result = "";
+  switch(val) {
+      case '1': result = "Зима"; break;
+      case '2': result = "Весна"; break;
+      case '3': result = "Літо"; break;
+      case '4': result = "Осінь"; break;
+      default: result = "Невідома пора року";
+  }
+  console.log(`Змінна result: ${result}`);
+  document.getElementById('log2').innerText = `Введено: ${val}\nЗмінна result: ${result}\n(Див. також консоль)`;
+}
+</pre>
+        <h3>Результат виконання</h3>
+        <button onclick="runTask2()">Запустити скрипт</button>
+        <div id="log2" class="console-output">Результат...</div>
+    </section>
+
+    <section id="task3">
+        <h2>Завдання №3: Авторизація</h2>
+        <h3>Програмний код</h3>
+        <pre>
+function runTask3() {
+  let login = prompt("Введіть логін (Admin/User):");
+  if (login === "Admin") {
+      let pass = prompt("Пароль Адміна?");
+      if (pass === "TheMaster") alert("Hello, Admin");
+      else alert("Невірний пароль");
+  } else if (login === "User") {
+      let pass = prompt("Пароль Користувача?");
+      if (pass === "UserPass") alert("Hello, User");
+      else alert("Невірний пароль");
+  } else if (login === null || login === "") {
+      alert("Скасовано");
+  } else {
+      alert("Я вас не знаю");
+  }
+}
+</pre>
+        <h3>Результат виконання</h3>
+        <button onclick="runTask3()">Вхід</button>
+        <div id="log3" class="console-output">Див. вікна prompt/alert</div>
+    </section>
+
+    <section id="task4">
+        <h2>Завдання №4: Функції</h2>
+        <h3>Програмний код</h3>
+        <pre>
+function makeTransaction(quantity, pricePerDroid) {
+  return `You ordered ${quantity} droids worth ${quantity * pricePerDroid} credits!`;
+}
+
+function runTask4() {
+    let q = prompt("Введіть кількість дроїдів:");
+    let p = prompt("Введіть ціну за одного дроїда:");
+    
+    if(q === null || p === null) return;
+
+    if(isNaN(q) || isNaN(p) || q.trim() === "" || p.trim() === "") {
+        alert("Помилка: введіть коректні числа!");
+        return;
+    }
+
+    let res = makeTransaction(Number(q), Number(p));
+    console.log(res);
+    alert(res);
+    document.getElementById('log4').innerText = res;
+}
+</pre>
+        <h3>Результат виконання</h3>
+        <button onclick="runTask4()">Зробити замовлення</button>
+        <div id="log4" class="console-output">Результат...</div>
+    </section>
+
+    <section id="task5">
+        <h2>Завдання №5: Перевірка на спам</h2>
+        <h3>Програмний код</h3>
+        <pre>
+function checkForSpam(message) {
+  let lower = message.toLowerCase();
+  return lower.includes('spam') || lower.includes('sale');
+}
+
+function runTask5() {
+    let text = prompt("Введіть текст для перевірки на спам:");
+    if (text !== null) {
+        let isSpam = checkForSpam(text);
+        let res = `Текст: "${text}"\nМістить спам? -> ${isSpam}`;
+        console.log(res);
+        document.getElementById('log5').innerText = res;
+    }
+}
+</pre>
+        <h3>Результат виконання</h3>
+        <button onclick="runTask5()">Перевірити текст</button>
+        <div id="log5" class="console-output">Результат...</div>
+    </section>
+
+    <section id="task6">
+        <h2>Завдання №6: Фільтрація масивів</h2>
+        <h3>Програмний код</h3>
+        <pre>
+function filterArray(numbers, value) {
+  let newArray = [];
+  for (let i = 0; i < numbers.length; i++) {
+      if (numbers[i] > value) {
+          newArray.push(numbers[i]);
+      }
+  }
+  return newArray;
+}
+
+function runTask6() {
+    let arrStr = prompt("Введіть числа масиву через кому:", "1, 10, 20, 5, 30");
+    if (!arrStr) return; // Скасовано
+
+    let valStr = prompt("Введіть число для фільтрації:", "7");
+    if (valStr === null) return;
+
+    // Перевірка на коректність вводу
+    if (valStr.trim() === "" || isNaN(valStr)) {
+        alert("Помилка: некоректне значення фільтру!");
+        return;
+    }
+    
+    // Перевірка масиву
+    let parts = arrStr.split(',');
+    let numbers = [];
+    for(let p of parts) {
+        if(p.trim() === "" || isNaN(p)) {
+             alert("Помилка: масив має містити тільки числа!");
+             return;
+        }
+        numbers.push(Number(p));
+    }
+
+    let value = Number(valStr);
+    let result = filterArray(numbers, value);
+    
+    let msg = `Вхідний масив: [${numbers}]\nЧисла більше ${value}: [${result}]`;
+    console.log(msg);
+    document.getElementById('log6').innerText = msg;
+}
+</pre>
+        <h3>Результат виконання</h3>
+        <button onclick="runTask6()">Ввести масив і фільтрувати</button>
+        <div id="log6" class="console-output">Результат...</div>
+    </section>
+
+    <section id="task7">
+        <h2>Завдання №7 (Варіант 7)</h2>
+        <p>
+            1. Знайти найбільший серед від’ємних та найменший серед додатних
+            елементів масиву.<br />
+            2. Упорядкувати масив у порядку зменшення методом вибору (Selection
+            Sort).
+        </p>
+        <h3>Програмний код</h3>
+        <pre>
+function runTask7() {
+    let sizeStr = prompt("Введіть кількість елементів масиву:", "10");
+    if (sizeStr === null) return;
+    
+    let size = Number(sizeStr);
+    if(isNaN(size) || size <= 0) {
+        alert("Введіть коректне число > 0");
+        return;
+    }
+
+    // Генерація
+    let arr = Array.from({length: size}, () => Math.floor(Math.random() * 200) - 100);
+    let output = `Вхідний масив: [${arr.join(', ')}]\n\n`;
+
+    // 1. Пошук
+    let maxNeg = -Infinity, minPos = Infinity;
+    let hasNeg = false, hasPos = false;
+    
+    for(let n of arr) {
+        if (n < 0) { hasNeg = true; if (n > maxNeg) maxNeg = n; }
+        if (n > 0) { hasPos = true; if (n < minPos) minPos = n; }
+    }
+    output += `Макс. від'ємне: ${hasNeg ? maxNeg : 'немає'}\n`;
+    output += `Мін. додатне: ${hasPos ? minPos : 'немає'}\n\n`;
+
+    // 2. Сортування вибором (Selection Sort)
+    let sorted = [...arr];
+    for (let i = 0; i < sorted.length - 1; i++) {
+        let maxIdx = i;
+        for (let j = i + 1; j < sorted.length; j++) {
+            if (sorted[j] > sorted[maxIdx]) maxIdx = j;
+        }
+        let temp = sorted[i]; 
+        sorted[i] = sorted[maxIdx]; 
+        sorted[maxIdx] = temp;
+    }
+    output += `Відсортований (за зменшенням): [${sorted.join(', ')}]`;
+    
+    document.getElementById('res7').innerText = output;
+}
+</pre>
+        <h3>Результат виконання</h3>
+        <button onclick="runTask7()">Ввести параметри та обчислити</button>
+        <div id="res7" class="console-output"></div>
+    </section>
+
+    <section id="task8">
+        <h2>Завдання №8: Двовимірні масиви</h2>
+        <h3>Програмний код</h3>
+        <pre>
+function runTask8() {
+    // Генерація масиву (10 випадкових чисел)
+    let arr = Array.from({length: 10}, () => Math.floor(Math.random() * 200) - 100);
+    let pos = arr.filter(n => n >= 0);
+    
+    let logMsg = `Згенерований масив: [${arr}]\nДодатні числа: [${pos}]`;
+    
+    if(pos.length >= 3) {
+       let newVal = prompt(`Третій елемент додатних (${pos[2]}). Введіть ВІД'ЄМНЕ число для заміни:`);
+       
+       if (newVal === null) {
+           logMsg += `\nСкасовано.`;
+       } else if (newVal.trim() === "" || isNaN(newVal)) {
+           alert("Помилка: це не число!");
+           logMsg += `\nПомилка введення.`;
+       } else if (Number(newVal) >= 0) {
+           alert("Помилка: число має бути від'ємним!");
+           logMsg += `\nПомилка: введено не від'ємне число.`;
+       } else {
+           pos[2] = Number(newVal);
+           logMsg += `\nУспішна заміна! Новий масив додатних: [${pos}]`;
+       }
+    } else {
+       logMsg += `\nНедостатньо додатних елементів (< 3) для заміни.`;
+    }
+    document.getElementById('log8').innerText = logMsg;
+}
+</pre>
+        <h3>Результат виконання</h3>
+        <button onclick="runTask8()">Виконати</button>
+        <div id="log8" class="console-output">Результат...</div>
+    </section>
+
+    <section id="task9">
+        <h2>Завдання №9: Гістограма (Варіант 7)</h2>
+        <h3>Програмний код</h3>
+        <pre>
+function buildHistogram() {
+  const input = document.getElementById('histInput').value;
+  const container = document.getElementById('chart');
+  container.innerHTML = '';
+
+  // Валідація: дозволені цифри, коми, мінуси, крапки, пробіли
+  if (!/^[\d,\s.-]+$/.test(input) || input.trim() === "") {
+      alert("Помилка: введіть коректні числа через кому!");
+      return;
+  }
+  
+  const nums = input.split(',').map(n => Number(n.trim()));
+  
+  if (nums.some(isNaN)) {
+      alert("Помилка: одне зі значень не є числом!");
+      return;
+  }
+
+  if (nums.length === 0) return;
+
+  const maxVal = Math.max(...nums);
+
+  nums.forEach(n => {
+      let bar = document.createElement('div');
+      bar.className = 'bar';
+      // Розрахунок висоти (якщо макс > 0)
+      let h = (maxVal > 0) ? (n / maxVal) * 100 : 0;
+      if (h < 0) h = 0; 
+      
+      bar.style.height = h + '%';
+      bar.innerHTML = `<span>${n}</span>`;
+      container.appendChild(bar);
+  });
+}
+</pre>
+        <h3>Результат виконання</h3>
+        <p>Введіть числа через кому:</p>
+        <input type="text" id="histInput" value="10, 50, 20, 80, 45, 95, 30" />
+        <button onclick="buildHistogram()">Побудувати</button>
+        <div id="chart" class="bar-container"></div>
+    </section>
+
+    <section id="conclusions">
+        <h2>Висновки</h2>
+        <p>
+            У ході лабораторної роботи було опановано основи JavaScript: змінні,
+            умовні оператори, цикли, функції та роботу з DOM. Реалізовано алгоритми
+            обробки масивів (пошук мінімуму/максимуму, сортування вибором) та
+            динамічну побудову графіків (гістограми).
+        </p>
+    </section>
+
+    <script>
+        // --- ЗАВДАННЯ 1 ---
+        function runTask1() {
+            let val = prompt("Введіть число:");
+            let num = Number(val);
+            let status = "";
+
+            if (val === null || val.trim() === "") {
+                status = "Ви нічого не ввели";
+            } else if (isNaN(num)) {
+                status = "Це не число!";
+            } else if (num > 0) {
+                status = "Число додатнє";
+            } else if (num < 0) {
+                status = "Число від’ємне";
+            } else {
+                status = "Число дорівнює нулю";
+            }
+
+            alert(status);
+            let msg = `Введено: "${val}", Результат: ${status}`;
+            console.log(msg);
+            document.getElementById("log1").innerText = msg;
+        }
+
+        // --- ЗАВДАННЯ 2 ---
+        function runTask2() {
+            let val = prompt("Введіть число 1-4 (1-Зима, 2-Весна...):");
+            let result = "";
+            switch (val) {
+                case "1":
+                    result = "Зима";
+                    break;
+                case "2":
+                    result = "Весна";
+                    break;
+                case "3":
+                    result = "Літо";
+                    break;
+                case "4":
+                    result = "Осінь";
+                    break;
+                default:
+                    result = "Невідома пора року";
+            }
+            console.log(`Змінна result: ${result}`);
+            document.getElementById(
+                "log2"
+            ).innerText = `Введено: ${val}\nЗмінна result: ${result}\n(Див. також консоль)`;
+        }
+
+        // --- ЗАВДАННЯ 3 ---
+        function runTask3() {
+            let login = prompt("Введіть логін (Admin/User):");
+            if (login === "Admin") {
+                let pass = prompt("Пароль Адміна?");
+                if (pass === "TheMaster") alert("Hello, Admin");
+                else alert("Невірний пароль");
+            } else if (login === "User") {
+                let pass = prompt("Пароль Користувача?");
+                if (pass === "UserPass") alert("Hello, User");
+                else alert("Невірний пароль");
+            } else if (login === null || login === "") {
+                alert("Скасовано");
+            } else {
+                alert("Я вас не знаю");
+            }
+        }
+
+        // --- ЗАВДАННЯ 4 ---
+        function makeTransaction(quantity, pricePerDroid) {
+            return `You ordered ${quantity} droids worth ${quantity * pricePerDroid
+                } credits!`;
+        }
+
+        function runTask4() {
+            let q = prompt("Введіть кількість дроїдів:");
+            let p = prompt("Введіть ціну за одного дроїда:");
+
+            if (q === null || p === null) return;
+
+            if (isNaN(q) || isNaN(p) || q.trim() === "" || p.trim() === "") {
+                alert("Помилка: введіть коректні числа!");
+                return;
+            }
+
+            let res = makeTransaction(Number(q), Number(p));
+            console.log(res);
+            alert(res);
+            document.getElementById("log4").innerText = res;
+        }
+
+        // --- ЗАВДАННЯ 5 ---
+        function checkForSpam(message) {
+            let lower = message.toLowerCase();
+            return lower.includes("spam") || lower.includes("sale");
+        }
+
+        function runTask5() {
+            let text = prompt("Введіть текст для перевірки на спам:");
+            if (text !== null) {
+                let isSpam = checkForSpam(text);
+                let res = `Текст: "${text}"\nМістить спам? -> ${isSpam}`;
+                console.log(res);
+                document.getElementById("log5").innerText = res;
+            }
+        }
+
+        // --- ЗАВДАННЯ 6 ---
+        function filterArray(numbers, value) {
+            let newArray = [];
+            for (let i = 0; i < numbers.length; i++) {
+                if (numbers[i] > value) {
+                    newArray.push(numbers[i]);
+                }
+            }
+            return newArray;
+        }
+
+        function runTask6() {
+            let arrStr = prompt(
+                "Введіть числа масиву через кому:",
+                "1, 10, 20, 5, 30"
+            );
+            if (!arrStr) return; // Скасовано
+
+            let valStr = prompt("Введіть число для фільтрації:", "7");
+            if (valStr === null) return;
+
+            if (valStr.trim() === "" || isNaN(valStr)) {
+                alert("Помилка: некоректне значення фільтру!");
+                return;
+            }
+
+            let parts = arrStr.split(",");
+            let numbers = [];
+            for (let p of parts) {
+                if (p.trim() === "" || isNaN(p)) {
+                    alert("Помилка: масив має містити тільки числа!");
+                    return;
+                }
+                numbers.push(Number(p));
+            }
+
+            let value = Number(valStr);
+            let result = filterArray(numbers, value);
+
+            let msg = `Вхідний масив: [${numbers}]\nЧисла більше ${value}: [${result}]`;
+            console.log(msg);
+            document.getElementById("log6").innerText = msg;
+        }
+
+        // --- ЗАВДАННЯ 7 (ВАРІАНТ 7) ---
+        function runTask7() {
+            let sizeStr = prompt("Введіть кількість елементів масиву:", "10");
+            if (sizeStr === null) return;
+
+            let size = Number(sizeStr);
+            if (isNaN(size) || size <= 0) {
+                alert("Введіть коректне число > 0");
+                return;
+            }
+
+            let arr = Array.from(
+                { length: size },
+                () => Math.floor(Math.random() * 200) - 100
+            );
+            let output = `Вхідний масив: [${arr.join(", ")}]\n\n`;
+
+            let maxNeg = -Infinity,
+                minPos = Infinity;
+            let hasNeg = false,
+                hasPos = false;
+
+            for (let n of arr) {
+                if (n < 0) {
+                    hasNeg = true;
+                    if (n > maxNeg) maxNeg = n;
+                }
+                if (n > 0) {
+                    hasPos = true;
+                    if (n < minPos) minPos = n;
+                }
+            }
+            output += `Макс. від'ємне: ${hasNeg ? maxNeg : "немає"}\n`;
+            output += `Мін. додатне: ${hasPos ? minPos : "немає"}\n\n`;
+
+            let sorted = [...arr];
+            for (let i = 0; i < sorted.length - 1; i++) {
+                let maxIdx = i;
+                for (let j = i + 1; j < sorted.length; j++) {
+                    if (sorted[j] > sorted[maxIdx]) maxIdx = j;
+                }
+                let temp = sorted[i];
+                sorted[i] = sorted[maxIdx];
+                sorted[maxIdx] = temp;
+            }
+            output += `Відсортований (за зменшенням): [${sorted.join(", ")}]`;
+
+            document.getElementById("res7").innerText = output;
+        }
+
+        // --- ЗАВДАННЯ 8 ---
+        function runTask8() {
+            let arr = Array.from(
+                { length: 10 },
+                () => Math.floor(Math.random() * 200) - 100
+            );
+            let pos = arr.filter((n) => n >= 0);
+
+            let logMsg = `Згенерований масив: [${arr}]\nДодатні числа: [${pos}]`;
+
+            if (pos.length >= 3) {
+                let newVal = prompt(
+                    `Третій елемент додатних (${pos[2]}). Введіть ВІД'ЄМНЕ число для заміни:`
+                );
+
+                if (newVal === null) {
+                    logMsg += `\nСкасовано.`;
+                } else if (newVal.trim() === "" || isNaN(newVal)) {
+                    alert("Помилка: це не число!");
+                    logMsg += `\nПомилка введення.`;
+                } else if (Number(newVal) >= 0) {
+                    alert("Помилка: число має бути від'ємним!");
+                    logMsg += `\nПомилка: введено не від'ємне число.`;
+                } else {
+                    pos[2] = Number(newVal);
+                    logMsg += `\nУспішна заміна! Новий масив додатних: [${pos}]`;
+                }
+            } else {
+                logMsg += `\nНедостатньо додатних елементів (< 3) для заміни.`;
+            }
+            document.getElementById("log8").innerText = logMsg;
+        }
+
+        // --- ЗАВДАННЯ 9 ---
+        function buildHistogram() {
+            const input = document.getElementById("histInput").value;
+            const container = document.getElementById("chart");
+            container.innerHTML = "";
+
+            if (!/^[\d,\s.-]+$/.test(input) || input.trim() === "") {
+                alert("Помилка: введіть коректні числа через кому!");
+                return;
+            }
+
+            const nums = input.split(",").map((n) => Number(n.trim()));
+
+            if (nums.some(isNaN)) {
+                alert("Помилка: одне зі значень не є числом!");
+                return;
+            }
+
+            if (nums.length === 0) return;
+
+            const maxVal = Math.max(...nums);
+
+            nums.forEach((n) => {
+                let bar = document.createElement("div");
+                bar.className = "bar";
+                let h = maxVal > 0 ? (n / maxVal) * 100 : 0;
+                if (h < 0) h = 0;
+
+                bar.style.height = h + "%";
+                bar.innerHTML = `<span>${n}</span>`;
+                container.appendChild(bar);
+            });
+        }
+    </script>
+</body>
+
+</html>

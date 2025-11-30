@@ -1,153 +1,172 @@
 <!DOCTYPE html>
 <html lang="uk">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Лабораторна робота №3 — Звіт</title>
-<style>
-html {
-  scroll-behavior: smooth;
-}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Лабораторна робота №3 — Звіт</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
 
-/* Плаваюче меню змісту */
-.floating-nav {
-  position: fixed;
-  right: 30px;
-  top: 120px;
-  width: 220px;
-  background: #fff;
-  border: 1px solid #ccd4e0;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  padding: 12px 16px;
-  font-size: 14px;
-  z-index: 999;
-  max-height: 70vh;
-  overflow-y: auto;
-}
+      /* Плаваюче меню змісту */
+      .floating-nav {
+        position: fixed;
+        right: 30px;
+        top: 120px;
+        width: 220px;
+        background: #fff;
+        border: 1px solid #ccd4e0;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        padding: 12px 16px;
+        font-size: 14px;
+        z-index: 999;
+        max-height: 70vh;
+        overflow-y: auto;
+      }
 
-.floating-nav h3 {
-  margin-top: 0;
-  text-align: center;
-  font-size: 15px;
-  color: #003366;
-  border-bottom: 2px solid #003366;
-  padding-bottom: 4px;
-}
+      .floating-nav h3 {
+        margin-top: 0;
+        text-align: center;
+        font-size: 15px;
+        color: #003366;
+        border-bottom: 2px solid #003366;
+        padding-bottom: 4px;
+      }
 
-.floating-nav ul {
-  list-style: none;
-  margin: 10px 0 0;
-  padding: 0;
-}
+      .floating-nav ul {
+        list-style: none;
+        margin: 10px 0 0;
+        padding: 0;
+      }
 
-.floating-nav li {
-  margin: 6px 0;
-}
+      .floating-nav li {
+        margin: 6px 0;
+      }
 
-.floating-nav a {
-  color: #0044cc;
-  text-decoration: none;
-  transition: color 0.2s;
-}
+      .floating-nav a {
+        color: #0044cc;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
 
-.floating-nav a:hover {
-  color: #001a66;
-  text-decoration: underline;
-}
+      .floating-nav a:hover {
+        color: #001a66;
+        text-decoration: underline;
+      }
 
-body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: #f6f8fc;
-  margin: 20px;
-  color: #222;
-}
-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-header h1 {
-  color: #003366;
-  margin-bottom: 5px;
-}
-section {
-  background: #fff;
-  border-radius: 12px;
-  padding: 20px 25px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  margin-bottom: 25px;
-}
-h2 {
-  color: #003366;
-  border-bottom: 2px solid #003366;
-  padding-bottom: 5px;
-}
-h3 { color: #005599; margin-top: 15px; }
-ul, ol { margin-left: 25px; }
-pre {
-  background: #eef1f8;
-  padding: 10px;
-  border-radius: 8px;
-  overflow-x: auto;
-}
-img.screenshot {
-  max-width: 100%;
-  border: 1px solid #aaa;
-  border-radius: 6px;
-  margin-top: 8px;
-}
-a {
-  color: #0044cc;
-}
-footer {
-  text-align: center;
-  font-size: 14px;
-  color: #666;
-  margin-top: 20px;
-}
-</style>
-</head>
-<body>
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #f6f8fc;
+        margin: 20px;
+        color: #222;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      header h1 {
+        color: #003366;
+        margin-bottom: 5px;
+      }
+      section {
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px 25px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 25px;
+      }
+      h2 {
+        color: #003366;
+        border-bottom: 2px solid #003366;
+        padding-bottom: 5px;
+      }
+      h3 {
+        color: #005599;
+        margin-top: 15px;
+      }
+      ul,
+      ol {
+        margin-left: 25px;
+      }
+      pre {
+        background: #eef1f8;
+        padding: 10px;
+        border-radius: 8px;
+        overflow-x: auto;
+      }
+      img.screenshot {
+        max-width: 100%;
+        border: 1px solid #aaa;
+        border-radius: 6px;
+        margin-top: 8px;
+      }
+      a {
+        color: #0044cc;
+      }
+      footer {
+        text-align: center;
+        font-size: 14px;
+        color: #666;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>ЛАБОРАТОРНА РОБОТА №3</h1>
+      <p>
+        <b>Тема:</b> ВЕРСТКА HTML-ДОКУМЕНТУ. БЛОКОВА ВЕРСТКА. ВЕРСТКА ЗАСОБАМИ
+        CSS та FLEXBOX. АДАПТИВНА ВЕРСТКА. МЕДІА-ЗАПИТИ. МЕТАТЕГ VIEWPORT.
+      </p>
+    </header>
 
-<header>
-  <h1>ЛАБОРАТОРНА РОБОТА №3</h1>
-  <p><b>Тема:</b> ВЕРСТКА HTML-ДОКУМЕНТУ. БЛОКОВА ВЕРСТКА.  
-  ВЕРСТКА ЗАСОБАМИ CSS та FLEXBOX. АДАПТИВНА ВЕРСТКА.  
-  МЕДІА-ЗАПИТИ. МЕТАТЕГ VIEWPORT.</p>
-</header>
+    <section id="goal">
+      <h2>Мета роботи</h2>
+      <p>
+        Придбати практичні навички верстки сторінок засобами CSS, верстки на
+        основі плаваючих елементів, з’ясувати переваги та недоліки типів макетів
+        веб-сторінок. Освоїти роботу з технологією <b>FLEXBOX</b>, створення
+        адаптивних макетів, медіа-запитів та використання метатегу
+        <code>viewport</code>.
+      </p>
+      <ul style="text-align: left; margin-left: 20px">
+        <li><a href="site.html">Посилання на сайт</a></li>
+      </ul>
+    </section>
 
-<section id="goal">
-  <h2>Мета роботи</h2>
-  <p>
-    Придбати практичні навички верстки сторінок засобами CSS, 
-    верстки на основі плаваючих елементів, з’ясувати переваги та недоліки типів макетів веб-сторінок.  
-    Освоїти роботу з технологією <b>FLEXBOX</b>, створення адаптивних макетів, медіа-запитів та використання метатегу <code>viewport</code>.
-  </p>
-  <ul style="text-align: left; margin-left: 20px;">
-  <li><a href="site.html">Посилання на сайт</a></li>
-</ul>
-</section>
+    <section id="task1">
+      <h2>Завдання №1 — Розробка макету власного сайту</h2>
+      <p>
+        Для реалізації головної сторінки мого вебзастосунку я використовую
+        <b>адаптивний блоковий макет</b>, побудований за допомогою технології
+        <b>Flexbox</b>. Такий тип макету дозволяє елементам гнучко змінювати
+        свої розміри та розташування залежно від ширини екрана користувача.
+      </p>
 
-<section id="task1">
-  <h2>Завдання №1 — Розробка макету власного сайту</h2>
-  <p>
-    Для реалізації головної сторінки мого вебзастосунку я використовую <b>адаптивний блоковий макет</b>,
-    побудований за допомогою технології <b>Flexbox</b>. Такий тип макету дозволяє елементам гнучко змінювати
-    свої розміри та розташування залежно від ширини екрана користувача.
-  </p>
+      <h3>Тип макету:</h3>
+      <ul>
+        <li><b>Тип:</b> Блоковий, адаптивний.</li>
+        <li>
+          <b>Технології:</b> HTML5 семантичні теги + CSS3 (Flexbox, Media
+          Queries).
+        </li>
+        <li>
+          <b>Переваги:</b> Зручна адаптація під різні пристрої, простота зміни
+          структури, гнучкість у дизайні.
+        </li>
+      </ul>
 
-  <h3>Тип макету:</h3>
-  <ul>
-    <li><b>Тип:</b> Блоковий, адаптивний.</li>
-    <li><b>Технології:</b> HTML5 семантичні теги + CSS3 (Flexbox, Media Queries).</li>
-    <li><b>Переваги:</b> Зручна адаптація під різні пристрої, простота зміни структури, гнучкість у дизайні.</li>
-  </ul>
+      <h3>Скріншот головної сторінки сайту</h3>
+      <img
+        src="main-page.png"
+        alt="Головна сторінка сайту"
+        class="screenshot"
+      />
 
-  <h3>Скріншот головної сторінки сайту</h3>
-  <img src="main-page.png" alt="Головна сторінка сайту" class="screenshot">
-
-  <h3>HTML код головної сторінки</h3>
-  <pre>
+      <h3>HTML код головної сторінки</h3>
+      <pre>
 &lt;!DOCTYPE html&gt;
 &lt;html lang="uk"&gt;
 &lt;head&gt;
@@ -192,10 +211,11 @@ footer {
   &lt;/footer&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-  </pre>
+  </pre
+      >
 
-  <h3>CSS код головної сторінки</h3>
-  <pre>
+      <h3>CSS код головної сторінки</h3>
+      <pre>
 * {
   box-sizing: border-box;
   margin: 0;
@@ -298,60 +318,104 @@ footer.footer {
     display: block;
   }
 }
-  </pre>
+  </pre
+      >
 
-  <h3>Пояснення до макету:</h3>
-  <ul>
-    <li><b>Тип макету:</b> Адаптивний блоковий макет, побудований на Flexbox.</li>
-    <li><b>Семантика:</b> використані теги <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>.</li>
-    <li><b>Адаптивність:</b> реалізована через <code>@media</code> запити та “бургер-меню”.</li>
-    <li><b>Ефекти:</b> анімація при наведенні на картки, плавне розгортання меню.</li>
-    <li><b>Використані одиниці:</b> rem, %, vw — для гнучкої масштабованості.</li>
-  </ul>
-</section>
+      <h3>Пояснення до макету:</h3>
+      <ul>
+        <li>
+          <b>Тип макету:</b> Адаптивний блоковий макет, побудований на Flexbox.
+        </li>
+        <li>
+          <b>Семантика:</b> використані теги <code>&lt;header&gt;</code>,
+          <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>.
+        </li>
+        <li>
+          <b>Адаптивність:</b> реалізована через <code>@media</code> запити та
+          “бургер-меню”.
+        </li>
+        <li>
+          <b>Ефекти:</b> анімація при наведенні на картки, плавне розгортання
+          меню.
+        </li>
+        <li>
+          <b>Використані одиниці:</b> rem, %, vw — для гнучкої масштабованості.
+        </li>
+      </ul>
+    </section>
 
+    <section id="task2">
+      <h2>Завдання №2</h2>
+      <p>Виконати верстку сторінки за допомогою технології <b>Flexbox</b>.</p>
 
-<section id="task2">
-  <h2>Завдання №2</h2>
-  <p>Виконати верстку сторінки за допомогою технології <b>Flexbox</b>.</p>
+      <h3>Скріншот сторінки, яка була виконана технологією FLEXBOX:</h3>
+      <img src="flexbox-example.png" alt="Flexbox верстка" class="screenshot" />
+    </section>
 
-  <h3>Скріншот сторінки, яка була виконана технологією FLEXBOX:</h3>
-  <img src="flexbox-example.png" alt="Flexbox верстка" class="screenshot">
-</section>
+    <section id="fixed-table">
+      <h2>Фіксована таблична верстка</h2>
+      <p>
+        Приклад сторінки, де елементи розташовані у таблиці з фіксованими
+        ширинами стовпців.
+      </p>
+      <img
+        src="fixed-table-layout.png"
+        alt="Фіксована таблична верстка"
+        class="screenshot"
+      />
+    </section>
 
-<section id="fixed-table">
-  <h2>Фіксована таблична верстка</h2>
-  <p>Приклад сторінки, де елементи розташовані у таблиці з фіксованими ширинами стовпців.</p>
-  <img src="fixed-table-layout.png" alt="Фіксована таблична верстка" class="screenshot">
-</section>
+    <section id="fluid-table">
+      <h2>Гумова таблична верстка</h2>
+      <p>
+        Приклад сторінки, де таблиця розтягується відповідно до ширини вікна
+        браузера.
+      </p>
+      <img
+        src="fluid-table-layout.png"
+        alt="Гумова таблична верстка"
+        class="screenshot"
+      />
+    </section>
 
-<section id="fluid-table">
-  <h2>Гумова таблична верстка</h2>
-  <p>Приклад сторінки, де таблиця розтягується відповідно до ширини вікна браузера.</p>
-  <img src="fluid-table-layout.png" alt="Гумова таблична верстка" class="screenshot">
-</section>
+    <section id="fixed-block">
+      <h2>Фіксована блокова верстка</h2>
+      <p>
+        Приклад сторінки, де блоки мають постійну ширину незалежно від розміру
+        вікна браузера.
+      </p>
+      <img
+        src="fixed-block-layout.png"
+        alt="Фіксована блокова верстка"
+        class="screenshot"
+      />
+    </section>
 
-<section id="fixed-block">
-  <h2>Фіксована блокова верстка</h2>
-  <p>Приклад сторінки, де блоки мають постійну ширину незалежно від розміру вікна браузера.</p>
-  <img src="fixed-block-layout.png" alt="Фіксована блокова верстка" class="screenshot">
-</section>
+    <section id="fluid-block">
+      <h2>Гумова блокова верстка</h2>
+      <p>
+        Приклад сторінки, де блоки змінюють свої розміри пропорційно до ширини
+        екрана.
+      </p>
+      <img
+        src="fluid-block-layout.png"
+        alt="Гумова блокова верстка"
+        class="screenshot"
+      />
+    </section>
 
-<section id="fluid-block">
-  <h2>Гумова блокова верстка</h2>
-  <p>Приклад сторінки, де блоки змінюють свої розміри пропорційно до ширини екрана.</p>
-  <img src="fluid-block-layout.png" alt="Гумова блокова верстка" class="screenshot">
-</section>
+    <section id="task3">
+      <h2>Завдання №3</h2>
+      <p>
+        Створити адаптивну сторінку з використанням медіа-запитів для різних
+        пристроїв.
+      </p>
 
-<section id="task3">
-  <h2>Завдання №3</h2>
-  <p>Створити адаптивну сторінку з використанням медіа-запитів для різних пристроїв.</p>
+      <h3>Зовнішній вигляд сторінки</h3>
+      <img src="page.png" alt="Адаптивна сторінка" class="screenshot" />
 
-  <h3>Зовнішній вигляд сторінки</h3>
-  <img src="page.png" alt="Адаптивна сторінка" class="screenshot">
-
-  <h3>HTML код сторінки</h3>
-<pre>
+      <h3>HTML код сторінки</h3>
+      <pre>
 &lt;div class="container"&gt;
 
   &lt;!-- === Програма курсу React === --&gt;
@@ -456,10 +520,11 @@ footer.footer {
   &lt;/section&gt;
 
 &lt;/div&gt;
-</pre>
+</pre
+      >
 
-  <h3>CSS код сторінки</h3>
-<pre>
+      <h3>CSS код сторінки</h3>
+      <pre>
 /* === Базові стилі === */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -532,38 +597,37 @@ body {
   .qa-container { flex-direction: column; text-align: center; }
   .qa-img-container { margin-top: 20px; width: 90%; }
 }
-</pre>
-</section>
+</pre
+      >
+    </section>
 
-<section id="conclusion">
-  <h2>Висновки</h2>
-  <p>
-    У ході виконання лабораторної роботи №3 я опанувала методи створення сторінок із фіксованою, гумовою, 
-    табличною та блоковою версткою.  
-    Освоїла технологію <b>Flexbox</b> для створення гнучких адаптивних макетів.  
-    Також навчилася застосовувати медіа-запити для адаптації сторінок під різні пристрої.
-  </p>
-</section>
+    <section id="conclusion">
+      <h2>Висновки</h2>
+      <p>
+        У ході виконання лабораторної роботи №3 я опанувала методи створення
+        сторінок із фіксованою, гумовою, табличною та блоковою версткою. Освоїла
+        технологію <b>Flexbox</b> для створення гнучких адаптивних макетів.
+        Також навчилася застосовувати медіа-запити для адаптації сторінок під
+        різні пристрої.
+      </p>
+    </section>
 
-<footer>
-  © 2025 | Лабораторна робота №3 — Литовченко Ангеліна
-</footer>
+    <footer>© 2025 | Лабораторна робота №3 — Литовченко Ангеліна</footer>
 
-<!-- Зміст -->
-<nav class="floating-nav">
-  <h3>Зміст</h3>
-  <ul>
-    <li><a href="#goal">Мета роботи</a></li>
-    <li><a href="#task1">Завдання №1</a></li>
-    <li><a href="#task2">Завдання №2 (Flexbox)</a></li>
-    <li><a href="#fixed-table">Фіксована таблична верстка</a></li>
-    <li><a href="#fluid-table">Гумова таблична верстка</a></li>
-    <li><a href="#fixed-block">Фіксована блокова верстка</a></li>
-    <li><a href="#fluid-block">Гумова блокова верстка</a></li>
-    <li><a href="#task3">Завдання №3 (Адаптивна верстка)</a></li>
-    <li><a href="#conclusion">Висновки</a></li>
-  </ul>
-</nav>
-
-</body>
+    <!-- Зміст -->
+    <nav class="floating-nav">
+      <h3>Зміст</h3>
+      <ul>
+        <li><a href="#goal">Мета роботи</a></li>
+        <li><a href="#task1">Завдання №1</a></li>
+        <li><a href="#task2">Завдання №2 (Flexbox)</a></li>
+        <li><a href="#fixed-table">Фіксована таблична верстка</a></li>
+        <li><a href="#fluid-table">Гумова таблична верстка</a></li>
+        <li><a href="#fixed-block">Фіксована блокова верстка</a></li>
+        <li><a href="#fluid-block">Гумова блокова верстка</a></li>
+        <li><a href="#task3">Завдання №3 (Адаптивна верстка)</a></li>
+        <li><a href="#conclusion">Висновки</a></li>
+      </ul>
+    </nav>
+  </body>
 </html>
