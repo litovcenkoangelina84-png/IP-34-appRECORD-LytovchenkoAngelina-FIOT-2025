@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Лабораторна робота №7</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background-color: #f6f8fc;
+        margin: 20px;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .floating-nav {
+        position: fixed;
+        right: 20px;
+        top: 80px;
+        width: 260px;
+        background: #ffffff;
+        border: 1px solid #e1e4e8;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        padding: 15px;
+        font-size: 13px;
+        z-index: 100;
+        max-height: 85vh;
+        overflow-y: auto;
+      }
+      .floating-nav h3 {
+        margin-top: 0;
+        text-align: center;
+        font-size: 16px;
+        color: #003366;
+        border-bottom: 2px solid #eaecef;
+        padding-bottom: 10px;
+      }
+      .floating-nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .floating-nav li {
+        margin: 6px 0;
+      }
+      .floating-nav a {
+        color: #0366d6;
+        text-decoration: none;
+        display: block;
+        padding: 2px 0;
+      }
+      .floating-nav a:hover {
+        color: #005cc5;
+        text-decoration: underline;
+      }
+
+      /* Основний контент */
+      header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      header h1 {
+        color: #003366;
+        margin-bottom: 10px;
+      }
+      header p {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      section {
+        background: #ffffff;
+        border-radius: 8px;
+        padding: 25px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+        margin-right: 290px; /* Місце для навігації */
+        border: 1px solid #e1e4e8;
+      }
+
+      h2 {
+        color: #003366;
+        border-bottom: 1px solid #eaecef;
+        padding-bottom: 10px;
+        margin-top: 0;
+      }
+      h3 {
+        color: #005599;
+        margin-top: 20px;
+        font-size: 1.1em;
+        border-left: 4px solid #005599;
+        padding-left: 10px;
+      }
+
+      pre {
+        background: #f6f8fa;
+        color: #24292e;
+        padding: 15px;
+        border-radius: 6px;
+        border: 1px solid #e1e4e8;
+        overflow-x: auto;
+        font-family: Consolas, monospace;
+        font-size: 13px;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin-bottom: 15px;
+        color: #586069;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .back-link:hover {
+        color: #0366d6;
+      }
+
+      /* Стилі для скріншотів */
+      .screenshot {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #ccc;
+        margin: 10px 0;
+        border-radius: 4px;
+        display: block;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Стилі посилань в контенті */
+      .content-link {
+        color: #0366d6;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .content-link:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 1000px) {
+        .floating-nav {
+          position: static;
+          width: auto;
+          margin-bottom: 20px;
+        }
+        section {
+          margin-right: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="index.html" class="back-link">← Повернутися на головну</a>
+      <h1>ЛАБОРАТОРНА РОБОТА №7</h1>
+      <p>
+        <b>Тема:</b> Модульність коду. Node.js. JSON. Web Storage API.
+        Асинхронність. Проміси. HTTP-запити. REST API. AJAX. Крос-доменні
+        запити. Пагінація. CRUD.
+      </p>
+    </header>
+
+    <nav class="floating-nav">
+      <h3>Зміст</h3>
+      <ul>
+        <li><a href="#topic">Тема та Мета</a></li>
+        <li><a href="#links">Посилання</a></li>
+        <li><a href="#task1">Завдання 1 (Кошик)</a></li>
+        <li><a href="#task2">Завдання 2 (Галерея)</a></li>
+        <li><a href="#task3">Завдання 3 (Таймер)</a></li>
+        <li><a href="#task4">Завдання 4 (Проміси)</a></li>
+        <li><a href="#task5">Завдання 5 (API)</a></li>
+        <li><a href="#conclusions">Висновки</a></li>
+      </ul>
+    </nav>
+
+    <section id="topic">
+      <h2>Мета роботи</h2>
+      <p>
+        Придбати практичні навички створення модального вікна; закріпити навички
+        роботи з делегуванням подій, Web Storage API. Придбати навички роботи зі
+        створення промісів (Promise), обробки HTTP-запитів (Fetch API) та роботи
+        з публічними REST API.
+      </p>
+    </section>
+
+    <section id="links">
+      <h2>Посилання</h2>
+      <ul>
+        <li>
+          🔗
+          <a
+            href="https://github.com/litovcenkoangelina84-png/lab7.git"
+            target="_blank"
+            class="content-link"
+            >GitHub Репозиторій</a
+          >
+        </li>
+
+        <li>
+          🔗
+          <a
+            href="https://litovcenkoangelina84-png.github.io/IP-34-appRECORD-LytovchenkoAngelina-FIOT-2025/"
+            target="_blank"
+            class="content-link"
+            >Жива сторінка Звітів</a
+          >
+        </li>
+        <li>
+          🔗
+          <a
+            href="https://litovcenkoangelina84-png.github.io/IP34_appWEB-LytovchenkoAngelina-FIOT-2025/"
+            target="_blank"
+            class="content-link"
+            >Жива сторінка WEB-застосунку</a
+          >
+        </li>
+        <li>
+          🔗
+          <a
+            href="https://github.com/litovcenkoangelina84-png/IP34_appWEB-LytovchenkoAngelina-FIOT-2025"
+            target="_blank"
+            class="content-link"
+            >Репозиторій WEB-застосунку</a
+          >
+        </li>
+      </ul>
+    </section>
+
+    <section id="task1">
+      <h2>Завдання №1: Кошик та Пагінація (To-Do List)</h2>
+      <p>
+        <b>Опис:</b> У власному застосунку створено кошик для видалених
+        елементів та реалізовано пагінацію списку завдань.
+      </p>
+
+      <h3>Код (фрагмент реалізації пагінації):</h3>
+      <pre>
+function renderPagination(totalPages) {
+    paginationContainer.innerHTML = "";
+    if (totalPages <= 1) return;
+
+    for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement("button");
+        btn.innerText = i;
+        if (i === currentPage) btn.classList.add("active");
+        btn.onclick = () => {
+            currentPage = i;
+            render();
+        };
+        paginationContainer.appendChild(btn);
+    }
+}</pre
+      >
+
+      <h3>Скріншоти:</h3>
+      <img src="/pagination.png" alt="Пагінація завдань" class="screenshot" />
+      <img src="/trash.png" alt="Кошик видалених" class="screenshot" />
+    </section>
+
+    <section id="task2">
+      <h2>Завдання №2: Галерея та Форма</h2>
+      <p>
+        <b>Опис:</b> Створено галерею зображень з використанням бібліотеки
+        basicLightbox та форму зворотного зв'язку зі збереженням даних у
+        LocalStorage.
+      </p>
+
+      <h3>Код (Збереження форми в LocalStorage):</h3>
+      <pre>
+form.addEventListener("input", (e) => {
+    formData[e.target.name] = e.target.value.trim();
+    localStorage.setItem("feedback-form-state", JSON.stringify(formData));
+});</pre
+      >
+
+      <h3>Скріншоти:</h3>
+      <img src="/lab7-gallery.png" alt="Галерея" class="screenshot" />
+      <img src="/lab7-form.png" alt="Форма" class="screenshot" />
+      <img
+        src="/lab7-formvalidation.png"
+        alt="Валідація форми"
+        class="screenshot"
+      />
+    </section>
+
+    <section id="task3">
+      <h2>Завдання №3: Таймер зворотного відліку</h2>
+      <p>
+        <b>Опис:</b> Реалізовано таймер з вибором дати через flatpickr та
+        сповіщеннями через iziToast.
+      </p>
+
+      <h3>Код (Логіка таймера):</h3>
+      <pre>
+function updateTimer() {
+    const now = new Date();
+    const diff = userSelectedDate - now;
+    if (diff <= 0) {
+        clearInterval(timerId);
+        return;
+    }
+    const { days, hours, minutes, seconds } = convertMs(diff);
+    // Оновлення DOM...
+}</pre
+      >
+
+      <h3>Скріншоти:</h3>
+      <img src="/lab7-timer.png" alt="Таймер" class="screenshot" />
+    </section>
+
+    <section id="task4">
+      <h2>Завдання №4: Генератор промісів</h2>
+      <p>
+        <b>Опис:</b> Форма генерує проміс, який виконується або відхиляється
+        через вказаний час.
+      </p>
+
+      <h3>Код (Створення промісу):</h3>
+      <pre>
+const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        if (state === "fulfilled") resolve(delay);
+        else reject(delay);
+    }, delay);
+});</pre
+      >
+
+      <h3>Скріншоти:</h3>
+      <img src="/lab7-promise.png" alt="Результат промісу" class="screenshot" />
+    </section>
+
+    <section id="task5">
+      <h2>Завдання №5: Пошук зображень (API)</h2>
+      <p>
+        <b>Опис:</b> Реалізовано пошук зображень через Pixabay API з
+        відображенням у SimpleLightbox.
+      </p>
+
+      <h3>Код (Fetch запит):</h3>
+      <pre>
+fetch(`${BASE_URL}?${params}`)
+    .then(response => {
+        if (!response.ok) throw new Error(response.statusText);
+        return response.json();
+    })
+    .then(data => {
+        if (data.hits.length === 0) {
+            iziToast.error({ message: "Sorry, there are no images..." });
+            return;
+        }
+        renderGallery(data.hits);
+    })</pre
+      >
+
+      <h3>Скріншоти:</h3>
+      <img
+        src="/lab7-failedsearch.png"
+        alt="Невдалий пошук зображень"
+        class="screenshot"
+      />
+      <img
+        src="/lab7-search.png"
+        alt="Успішний пошук зображень"
+        class="screenshot"
+      />
+    </section>
+
+    <section id="conclusions">
+      <h2>Висновок</h2>
+      <p>
+        В ході виконання лабораторної роботи №8 я створила веб-застосунок на
+        базі Vite. Я навчилася працювати з асинхронним JavaScript (Promises,
+        async/await), виконувати запити до сервера (Fetch API) та обробляти
+        отримані дані JSON. Також було закріплено навички роботи з LocalStorage
+        та підключення сторонніх бібліотек (iziToast, flatpickr, SimpleLightbox)
+        через npm.
+      </p>
+    </section>
+  </body>
+</html>
